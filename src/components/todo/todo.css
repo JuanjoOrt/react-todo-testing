@@ -32,5 +32,5 @@ main{
   }
 
   .input-text{
-      width: 34rem;
+      width: 34rem!important;
   }
