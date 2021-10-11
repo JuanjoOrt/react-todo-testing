@@ -1,0 +1,36 @@
+main{
+    margin-top: 5rem;
+    width: 40rem;
+    min-height: 20rem;
+  }
+  
+  .todo-container{
+    min-height: 20rem;
+    border: 4px solid black;
+    border-radius: 5px;
+  }
+
+  .buttons-section__add{
+      display: flex;
+      justify-content: end;
+      margin: 7px 8px;
+  }
+
+  form{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 8px;
+  }
+
+  .button-success{
+    height: fit-content;
+    margin-top: 10px;
+}
+
+  .icon {
+      font-size: 1.3rem;
+  }
+
+  .input-text{
+      width: 34rem;
+  }
