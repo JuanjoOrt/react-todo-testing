@@ -1,5 +1,5 @@
-import { Button, TextInput } from "nes-react";
-import { useState } from 'react'
+
+import React, { useState } from 'react'
 import { BsCheckLg } from "react-icons/bs";
 
 
@@ -28,13 +28,13 @@ export default function ButtonSection({handleNewTodo}){
         <>
             { !insertMode && <>
                 <div className='buttons-section__add'>
-                    <Button primary onClick={handleAdd}>Añadir</Button>
+                    <button onClick={handleAdd}>Añadir</button>
                 </div>
             </>
             }
             { insertMode && <form onSubmit={handleSubmit}>
-                <TextInput className='input-text' onChange={handleChangeInputText} value={text}/>
-                <Button className='button-success' success><BsCheckLg className='icon'/></Button>
+                <input type='text' className='input-text' onChange={handleChangeInputText} value={text}/>
+                <button className='button-success' success><BsCheckLg className='icon'/></button>
             </form>}
         </>
     )

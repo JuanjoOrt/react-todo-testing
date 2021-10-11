@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { Container, Checkbox } from "nes-react";
+import React,{ useState } from 'react'
 import './todo.css'
 import ButtonSection from './ButtonSection';
 
@@ -12,10 +11,9 @@ export default function TodoContainer(){
 
     return (
         <main>
-            <Container rounded title='List' className='todo-container'>
-                {console.log(list)}
-                {list.map((todoItem, index) => <Checkbox key={index} label={todoItem}/>)}
-            </Container>
+            <div rounded title='List' className='todo-container'>
+                {list.map((todoItem, index) => <div key={index} label={todoItem}/>)}
+            </div>
             <ButtonSection handleNewTodo={handleNewTodo}/>
         </main>
     
