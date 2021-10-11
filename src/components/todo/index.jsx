@@ -4,16 +4,19 @@ import './todo.css'
 import ButtonSection from './ButtonSection';
 
 export default function TodoContainer(){
-    const [list, setList] = useState({})
+    const [list, setList] = useState([])
+
+    const handleNewTodo = (text) => {
+        setList([...list, text])
+    }
 
     return (
         <main>
             <Container rounded title='List' className='todo-container'>
-                <Checkbox label='Esto es una prueba de checkbox'/>
-                <Checkbox label='Esto es una prueba de checkbox'/>
-                <Checkbox label='Esto es una prueba de checkbox'/>
+                {console.log(list)}
+                {list.map((todoItem, index) => <Checkbox key={index} label={todoItem}/>)}
             </Container>
-            <ButtonSection />
+            <ButtonSection handleNewTodo={handleNewTodo}/>
         </main>
     
     )
