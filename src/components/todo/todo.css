@@ -33,4 +33,5 @@ main{
 
   .input-text{
       width: 34rem!important;
+      margin-top: -4px!important;
   }
