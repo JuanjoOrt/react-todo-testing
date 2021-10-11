@@ -12,8 +12,9 @@ export default function ButtonSection({handleNewTodo}){
     }
 
     const handleSubmit = (e) => {
-        if (text === '') return null
         e.preventDefault()
+        if (text === '') return null
+
         setInsetMode(false)
         setText('')
         handleNewTodo(text)
