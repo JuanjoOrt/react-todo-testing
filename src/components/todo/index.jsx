@@ -12,7 +12,11 @@ export default function TodoContainer(){
     return (
         <main>
             <div rounded title='List' className='todo-container'>
-                {list.map((todoItem, index) => <div key={index} label={todoItem}/>)}
+                {list.map((todoItem, index) =>
+                    <div  key={index}>
+                        <input type={'checkbox'} /> 
+                        <span>{todoItem}</span>
+                    </div>)}
             </div>
             <ButtonSection handleNewTodo={handleNewTodo}/>
         </main>
