@@ -16,7 +16,7 @@ export default function TodoContainer(){
 
     return (
         <main>
-            <div title='List' className='todo-container'>
+            <div className='todo-container'>
                 {Object.keys(list).map((listKey, index) =>  
                     <Checkbox key={index} label={listKey} value={list[listKey]} onChange={handleCheckbox}/>
                 )}

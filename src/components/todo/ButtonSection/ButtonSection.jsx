@@ -34,7 +34,7 @@ export default function ButtonSection({handleNewTodo}){
             </>
             }
             { insertMode && <form onSubmit={handleSubmit}>
-                <input type='text' className='input-text' onChange={handleChangeInputText} value={text}/>
+                <input type='text' alt='new todo' className='input-text' onChange={handleChangeInputText} value={text}/>
                 <button className='button button-success'><BsCheckLg className='icon'/></button>
             </form>}
         </>
