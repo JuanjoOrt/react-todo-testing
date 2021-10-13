@@ -27,5 +27,25 @@ describe('<ButtonSection />', () => {
         const checkButton = component.container.querySelector('.button-success')
         expect(checkButton).toBeInTheDocument()  
     })
+
+    test('Check if input text is already writted', () => {
+        const component = render(<ButtonSection />)
+        const addButton = component.getByText('Añadir')
+        fireEvent.click(addButton)
+        const inputText = component.getByAltText('new todo')
+        fireEvent.change(inputText, {target: {value: 'esto es una prueba de texto'}})
+        expect(inputText.value).toBe('esto es una prueba de texto')
+    })
+
+    test('Check if input text can be empty', () => {
+        const component = render(<ButtonSection />)
+        const addButton = component.getByText('Añadir')
+        fireEvent.click(addButton)
+        const inputText = component.getByAltText('new todo')
+        fireEvent.change(inputText, {target: {value: 'esto es una prueba de texto'}})
+        fireEvent.change(inputText, {target: {value: ''}})
+        expect(inputText.value).toBe('')
+    })
+    
     
 })
