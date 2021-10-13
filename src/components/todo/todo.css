@@ -6,7 +6,7 @@ main{
   
   .todo-container{
     min-height: 20rem;
-    border: 4px solid black;
+    border: 2px solid black;
     border-radius: 5px;
   }
 
@@ -20,18 +20,6 @@ main{
     display: flex;
     justify-content: space-between;
     margin: 0 8px;
+    align-items: flex-end;
   }
 
-  .button-success{
-    height: fit-content;
-    margin-top: 10px;
-}
-
-  .icon {
-      font-size: 1.3rem;
-  }
-
-  .input-text{
-      width: 34rem!important;
-      margin-top: -4px!important;
-  }

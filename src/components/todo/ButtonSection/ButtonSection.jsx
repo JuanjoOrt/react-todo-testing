@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react'
 import { BsCheckLg } from "react-icons/bs";
+import './styles.css'
 
 
 export default function ButtonSection({handleNewTodo}){
@@ -28,13 +29,13 @@ export default function ButtonSection({handleNewTodo}){
         <>
             { !insertMode && <>
                 <div className='buttons-section__add'>
-                    <button onClick={handleAdd}>Añadir</button>
+                    <button className='button button-add' onClick={handleAdd}>Añadir</button>
                 </div>
             </>
             }
             { insertMode && <form onSubmit={handleSubmit}>
                 <input type='text' className='input-text' onChange={handleChangeInputText} value={text}/>
-                <button className='button-success' success><BsCheckLg className='icon'/></button>
+                <button className='button button-success'><BsCheckLg className='icon'/></button>
             </form>}
         </>
     )
