@@ -5,7 +5,8 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "test": "jest -env=jsdom"
+    "test": "jest -env=jsdom",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "react": "^17.0.0",
