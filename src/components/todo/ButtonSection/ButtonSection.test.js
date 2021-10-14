@@ -3,6 +3,12 @@ import '@testing-library/jest-dom/extend-expect'
 import {render, fireEvent} from '@testing-library/react'
 import ButtonSection from './ButtonSection'
 
+const setupAddClicked = () => {
+    const component = render(<ButtonSection />)
+    const addButton = component.getByText('Añadir')
+    fireEvent.click(addButton)
+    return {component}
+}
 
 describe('<ButtonSection />', () => {
 
@@ -13,34 +19,26 @@ describe('<ButtonSection />', () => {
     })
 
     test('When click add button, input appear', () => {
-        const component = render(<ButtonSection />)
-        const addButton = component.getByText('Añadir')
-        fireEvent.click(addButton)
+        const {component} = setupAddClicked()
         const inputText = component.getByAltText('new todo')
         expect(inputText).toBeInTheDocument()  
     })
 
     test('When click add button, check button appear', () => {
-        const component = render(<ButtonSection />)
-        const addButton = component.getByText('Añadir')
-        fireEvent.click(addButton)
+        const {component} = setupAddClicked()
         const checkButton = component.container.querySelector('.button-success')
         expect(checkButton).toBeInTheDocument()  
     })
 
     test('Check if input text is already writted', () => {
-        const component = render(<ButtonSection />)
-        const addButton = component.getByText('Añadir')
-        fireEvent.click(addButton)
+        const {component} = setupAddClicked()
         const inputText = component.getByAltText('new todo')
         fireEvent.change(inputText, {target: {value: 'esto es una prueba de texto'}})
         expect(inputText.value).toBe('esto es una prueba de texto')
     })
 
     test('Check if input text can be empty', () => {
-        const component = render(<ButtonSection />)
-        const addButton = component.getByText('Añadir')
-        fireEvent.click(addButton)
+        const {component} = setupAddClicked()
         const inputText = component.getByAltText('new todo')
         fireEvent.change(inputText, {target: {value: 'esto es una prueba de texto'}})
         fireEvent.change(inputText, {target: {value: ''}})
