@@ -46,6 +46,31 @@ describe('<ButtonSection />', () => {
         fireEvent.change(inputText, {target: {value: ''}})
         expect(inputText.value).toBe('')
     })
+
+    test('Check enter submit new todo', () => {
+        const mockHandler = jest.fn();
+        const component = render(<ButtonSection handleNewTodo={mockHandler}/>)
+        const addButton = component.getByText('Añadir')
+        fireEvent.click(addButton)
+        const inputText = component.getByAltText('new todo')
+        fireEvent.change(inputText, {target: {value: 'esto es un nuevo todo'}})
+        fireEvent.submit(inputText)
+        expect(mockHandler).toHaveBeenCalledTimes(1)
+        expect(mockHandler.mock.calls[0][0]).toBe('esto es un nuevo todo')
+    })
+
+    test('Check click button submit new todo', () => {
+        const mockHandler = jest.fn();
+        const component = render(<ButtonSection handleNewTodo={mockHandler}/>)
+        const addButton = component.getByText('Añadir')
+        fireEvent.click(addButton)
+        const inputText = component.getByAltText('new todo')
+        fireEvent.change(inputText, {target: {value: 'esto es un nuevo todo'}})
+        const checkButton = component.container.querySelector('.button-success')
+        fireEvent.click(checkButton)
+        expect(mockHandler).toHaveBeenCalledTimes(1)
+        expect(mockHandler.mock.calls[0][0]).toBe('esto es un nuevo todo')
+    })
     
     
 })
